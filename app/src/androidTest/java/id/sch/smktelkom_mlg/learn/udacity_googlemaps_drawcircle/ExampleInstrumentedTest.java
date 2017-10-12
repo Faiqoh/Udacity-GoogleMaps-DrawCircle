@@ -1,4 +1,4 @@
-package id.sch.smktelkom_mlg.learn.udacity_googlemaps_showhockeyapp;
+package id.sch.smktelkom_mlg.learn.udacity_googlemaps_drawcircle;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
