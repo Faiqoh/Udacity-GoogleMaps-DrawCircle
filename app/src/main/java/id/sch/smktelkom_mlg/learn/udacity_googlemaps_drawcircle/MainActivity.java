@@ -17,9 +17,9 @@ import com.google.android.gms.maps.model.LatLng;
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
 
-    static final CameraPosition JTG = CameraPosition.builder()
-            .target(new LatLng(-6.858623, 111.642224))
-            .zoom(15)
+    static final CameraPosition SEATTLE = CameraPosition.builder()
+            .target(new LatLng(47.6204, -122.2491))
+            .zoom(10)
             .bearing(0)
             .tilt(45)
             .build();
@@ -43,19 +43,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     }
 
-    @Override
-    public void onMapReady(GoogleMap map) {
-        Toast toast = Toast.makeText(getApplicationContext(), "Map Ready!", Toast.LENGTH_SHORT);
-        toast.show();
-        map.moveCamera(CameraUpdateFactory.newCameraPosition(JTG));
-        //map.addPolyline(new PolylineOptions().geodesic(true).add(renton).add(kirkland).add(everett).add(lynnwood).add(montlake).add(kent).add(showare).add(renton));
-        //map.addPolygon(new PolygonOptions().add(renton, kirkland, everett, lynnwood).fillColor(Color.GREEN));
-        map.addCircle(new CircleOptions()
-                .center(renton)
-                .radius(200)
-                .strokeColor(Color.GREEN)
-                .fillColor(Color.argb(64, 0, 255, 0)));
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -72,5 +59,19 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onMapReady(GoogleMap map) {
+        Toast toast = Toast.makeText(getApplicationContext(), "Map Ready!", Toast.LENGTH_SHORT);
+        toast.show();
+        map.moveCamera(CameraUpdateFactory.newCameraPosition(SEATTLE));
+        //map.addPolyline(new PolylineOptions().geodesic(true).add(renton).add(kirkland).add(everett).add(lynnwood).add(montlake).add(kent).add(showare).add(renton));
+        //map.addPolygon(new PolygonOptions().add(renton, kirkland, everett, lynnwood).fillColor(Color.GREEN));
+        map.addCircle(new CircleOptions()
+                .center(renton)
+                .radius(5000)
+                .strokeColor(Color.GREEN)
+                .fillColor(Color.argb(64, 0, 255, 0)));
     }
 }
